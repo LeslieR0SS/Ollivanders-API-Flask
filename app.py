@@ -9,6 +9,7 @@ def hello_world():
     return '<h1>Hello World!</h1>'
 
 #Rutas dinánimas:
+
 @app.route("/hello/<string:nombre>")
 @app.route("/hello/<string:nombre>/<int:edad>")
 def hola(nombre=None,edad=None):
