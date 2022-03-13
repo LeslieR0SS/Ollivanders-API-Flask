@@ -42,6 +42,17 @@ Y para guardar esas dependencias en un fichero **requirements.txt** (que luego n
 
 ---
 
+## **Dependencias utilizadas**
+
+- **Flask_restful:** permite manejar de una manera más entendible las rutas.
+  
+- **Flask_pymongo** o **mongoengine**: para poder conectar con la bbdd
+- **bcrypt:** para generar contraseñas
+
+
+
+
+---
 ## **Instalación:**
 
 - Para instalar todas las dependencias necessarias que hay en el **requiremetns.txt** en la venv:
