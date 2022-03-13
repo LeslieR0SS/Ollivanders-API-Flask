@@ -1,13 +1,17 @@
 from distutils.log import debug
-from turtle import home
 from flask import Flask 
 from flask_restful import Api
+
+
+from resources.home import home
 
 # from flask import url_for
 
 def create_app():
     #iniciador de flask
     app = Flask(__name__)
+    
+    #Para poder testear la API rest
     api = Api(app, catch_all_404s=True)
     api.add_resource(home, "/")
     # api.add_resource(stock, '/stock')
