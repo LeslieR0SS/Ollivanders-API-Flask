@@ -4,7 +4,7 @@ from flask_restful import Api
 
 
 from resources.home import home
-
+from resources.stock import stock
 # from flask import url_for
 
 def create_app():
@@ -16,7 +16,10 @@ def create_app():
     
     
     api.add_resource(home, "/")
-    # api.add_resource(stock, '/stock')
+    api.add_resource(stock, '/stock')
+    # api.add_resource(item, '/items/<name>')
+    # api.add_resource(quality, '/items/quality/<int:quality>')
+    # api.add_resource(SellIn, '/items/sell_in/<int:sell_in>')
 
     
     return app
