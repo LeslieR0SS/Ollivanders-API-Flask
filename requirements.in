@@ -1,0 +1,10 @@
+# dependencias de alto nivel pinneadas:
+click==8.0.4
+Flask==2.0.3
+Flask-Cors==3.0.10
+mongoengine==0.24.0
+tox==3.24.5
+virtualenv==20.13.3
+pytest==7.1.0
+pymongo==4.0
+py==1.11.0
