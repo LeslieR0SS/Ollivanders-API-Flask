@@ -130,3 +130,6 @@ dmypy.json
 
 # Mac IOS
 .DS_Store
+
+#MongoDB
+db_uri.py
