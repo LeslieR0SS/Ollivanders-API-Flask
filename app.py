@@ -25,6 +25,10 @@ def get_items():
     # return "hola estos son los items"
     return db.get_items(DB, HOST)
 
+# @app.route("/items/<string:name>", methods=["GET"])
+# def item_by_name():
+#         return "maripos"
+
 
 
 if __name__ == "__main__":
