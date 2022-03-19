@@ -36,10 +36,19 @@ def item_by_name(name):
     return db.get_items_by_name(DB, HOST, name)
 
 
-@app.route("/items/add", methods=["POST"])
+@app.route("/items", methods=["POST"])
+# @app.route("/items/add", methods=["POST"])
 def newItem():
     item_data = request.get_json()
     db.create_item(DB, HOST, item_data)
+    return db.get_items(DB, HOST)
+
+
+@app.route("/items", methods=["DELETE"])
+# @app.route("/items/delete", methods=["DELETE"])
+def delete_item():
+    item_data = request.get_json()
+    db.delete_item(DB, HOST, item_data)
     return db.get_items(DB, HOST)
 
 

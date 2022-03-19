@@ -1,3 +1,4 @@
+from gettext import find
 from flask import jsonify, g
 from repository.connection import get_bd
 from repository.schema import Ollivanders
@@ -37,4 +38,17 @@ class atlas:
         Ollivanders(
             name=newItem["name"], sell_in=newItem["sell_in"], quality=newItem["quality"]
         ).save()
-        #los tres campos son obligatorios
+        # los tres campos son obligatorios
+
+    @staticmethod
+    def delete_item(db, url, item_to_delete):
+        db = get_bd(db, url)
+        item_list = []
+        for item in g.Ollivanders.objects():  # Objeto de la coleccion
+            item_obj = item.to_json()  # Diccionario
+            if item_obj == item_to_delete:  # para porceder a eliminaar el item requiere que ambos diccionarios tengan los mismo campos.
+                item_list.append(item)  # aqui guardamos el documento/objeto de la bbdd
+            else:
+                continue
+        if len(item_list) > 0:
+            item_list[0].delete()
