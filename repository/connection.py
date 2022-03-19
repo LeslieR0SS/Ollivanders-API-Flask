@@ -8,11 +8,10 @@ from repository.items import items
 from repository.schema import Ollivanders
 
 
-
 def get_bd(db_name, host_url):
-    '''
+    """
     Se conecta a una base de datos y la devuelve al objeto grlobal g de Flask
-    '''
+    """
     if "db" not in g:
         g.db = connect(
             db=db_name,
@@ -23,9 +22,11 @@ def get_bd(db_name, host_url):
 
 
 def close_db(e=None):
-    db = g.pop("db", None)
-    if db is not None:
-        db.close()
+    g.pop("db", None)
+    connection = g.pop("connection", None)
+
+    if connection is not None:
+        connection.close()
 
 
 def init_db(db_name, host_url):
