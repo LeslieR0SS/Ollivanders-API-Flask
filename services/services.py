@@ -55,13 +55,7 @@ class atlas:
             item_list[0].delete()
 
     @staticmethod
-    def update_item(db, url):  # actualizamos todos los items iguales
-        db = get_bd(db, url)
-        for item in g.Ollivanders.objects():
-            item_obj = item.to_json()
-
-    @staticmethod
-    def update(db, url):
+    def update_items(db, url):
         """
         -Del objeto de BD lo pasas a objeto PY
         -Actualizas el objeto PY
