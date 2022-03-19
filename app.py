@@ -51,6 +51,11 @@ def delete_item():
     db.delete_item(DB, HOST, item_data)
     return db.get_items(DB, HOST)
 
+@app.route("/items", methods=["PUT"])
+def update_item():
+    db.update(DB, HOST)
+    return db.get_items(DB, HOST)
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True, port=8080)

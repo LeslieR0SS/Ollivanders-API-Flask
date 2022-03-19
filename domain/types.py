@@ -1,4 +1,4 @@
-class GildedRose(object):
+class Ollivanders(object):
     
     def __init__(self, items):
         self.items = items
