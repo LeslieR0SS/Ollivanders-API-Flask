@@ -1,6 +1,9 @@
+from crypt import methods
 from flask import (
     Flask,
     redirect,
+    jsonify,
+    request,
 )  # importamos el mini framework de FLask y redirect (para redireccionar rutas)
 from repository.db_uri import DB, HOST
 from repository.connection import init_app
@@ -31,6 +34,13 @@ def get_items():
 @app.route("/items/<string:name>", methods=["GET"])
 def item_by_name(name):
     return db.get_items_by_name(DB, HOST, name)
+
+
+@app.route("/items/add", methods=["POST"])
+def newItem():
+    item_data = request.get_json()
+    db.create_item(DB, HOST, item_data)
+    return db.get_items(DB, HOST)
 
 
 if __name__ == "__main__":

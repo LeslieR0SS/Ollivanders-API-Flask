@@ -30,5 +30,11 @@ class atlas:
             return jsonify({"items": items_list})
         else:
             return jsonify({"items": "N/A"})
-        
-    
+
+    @staticmethod
+    def create_item(db, url, newItem):
+        db = get_bd(db, url)
+        Ollivanders(
+            name=newItem["name"], sell_in=newItem["sell_in"], quality=newItem["quality"]
+        ).save()
+        #los tres campos son obligatorios
